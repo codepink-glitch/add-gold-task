@@ -39,37 +39,6 @@ public class PlayerAddGoldService {
         this.loggingService = LoggingService.getInstance();
     }
 
-//    public boolean addGoldToClan(PlayerAddGoldPostRequest request) {
-//        if (request.getGoldAmount() <= 0) {
-//            throw new RuntimeException("Can't pass negative or null gold value to clan");
-//        }
-//        boolean result = false;
-//        synchronized(clanService.getSyncObject(request.getClanId())) {
-//            synchronized(playerService.getSyncObject(request.getPlayerId())) {
-//                Player player = playerService.getById(request.getPlayerId());
-//
-//                if (player.getGold() < request.getGoldAmount()) {
-//                    // TODO custom exception
-//                    throw new RuntimeException("Player doesn't have enough gold.");
-//                }
-//
-//                // TODO refactoring
-//                PlayerPatchRequest changeGoldRequest = new PlayerPatchRequest();
-//                changeGoldRequest.setGoldAmount(-request.getGoldAmount());
-//                changeGoldRequest.setPlayerId(request.getPlayerId());
-//
-//                if (!playerService.changeGoldAmount(changeGoldRequest)) {
-//                    throw new RuntimeException("Player gold wasn't reduced.");
-//                }
-//
-//                ClanPatchRequest addGoldRequest = new ClanPatchRequest();
-//                addGoldRequest.setClanId(request.getClanId());
-//                addGoldRequest.setGoldAmount(request.getGoldAmount());
-//                result = clanService.changeGoldAmount(addGoldRequest);
-//            }
-//        }
-//        return result;
-//    }
 
     public boolean addGoldToClan(PlayerAddGoldPostRequest request) throws ServiceException {
         try {
