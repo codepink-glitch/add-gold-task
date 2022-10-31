@@ -4,7 +4,7 @@
   
 Для прослушивания эндпоинтов использовал [spark](http://sparkjava.com), в качестве бд postgreSQL, для создания connection pool использовал apache dbcp2.
 
-Логика добавления золота в клан от игрока сделана на основе двух synchronized блоков по первичным ключам клана и игрока, чтобы их золото во время передачи не менялось.
+Логика добавления золота в клан от игрока в [сервисе](https://github.com/codepink-glitch/add-gold-task/blob/main/src/main/java/services/PlayerAddGoldService.java) сделана на основе двух synchronized блоков по первичным ключам клана и игрока, чтобы их золото во время передачи не менялось. Объект синхронизации определен в [абстрактном классе - родителе](https://github.com/codepink-glitch/add-gold-task/blob/main/src/main/java/services/SynchronizedService.java)
 Проверено нагрузочным тестированием jmeter, целостность базы данных при 1000 запросов по передаче золота от 100 игроков сохранена.
   
  # Эндпоинты: 
