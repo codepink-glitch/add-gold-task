@@ -1,6 +1,20 @@
 version: '3.3'
 
 services:
+  add-gold-service:
+    build: .
+    networks:
+      - service_network
+    ports:
+      - '4567:4567'
+    expose:
+      - '4567'
+      - '8080'
+    links:
+      - "database:db"
+    depends_on:
+      - database
+
   database:
     image: postgres:latest
     restart: always
@@ -12,9 +26,15 @@ services:
       - '5432:5432'
     expose:
       - '5432'
+    networks:
+      - service_network
     volumes:
       - ./postgres_dump:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  service_network:
+    driver: bridge
 
 volumes:
   postgres_dump:

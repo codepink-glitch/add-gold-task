@@ -9,7 +9,8 @@ import java.util.Properties;
 
 public class DBUtil {
 
-    private final static String PROPERTIES_PATH = "src/main/resources/db.properties";
+//    private final static String PROPERTIES_PATH = "src/main/resources/db.properties";
+    private final static String PROPERTIES_PATH = "../src/main/resources/db.properties";
     private final static String DRIVER_CLASS_KEY = "driver.class.name";
     private final static String URL_KEY = "db.url";
     private final static String USER_KEY = "db.username";

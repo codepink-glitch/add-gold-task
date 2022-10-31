@@ -1,0 +1,10 @@
+.idea
+.git
+.gitignore
+*/target
+.Graph Results.jmx
+.init.sql
+.testdata.csv
+.jemter-results
+.postgres_dump
+README.md
